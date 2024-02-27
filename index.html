@@ -4136,9 +4136,10 @@
 		<!-- Three -->
 		<section id="three" class="wrapper style1 fade-up">
 			<div class="inner">
+				
 				<h2>AllowList</h2>
 				<p>Para solicitar a entrada em nossa cidade, pedimos que você participe de um processo de entrevista e preencha um formulário. Isso nos ajudará a conhecer melhor você e seu personagem, além de garantir que todos os novos membros estejam cientes das regras e comprometidos com a promoção de um ambiente saudável em nossa comunidade. Por favor, forneça detalhes sobre a história do seu personagem, demonstre seu conhecimento das regras do servidor e compartilhe quaisquer informações adicionais relevantes que possam nos ajudar a entender melhor como você se encaixa em nossa comunidade. Estamos ansiosos para recebê-lo em nosso servidor!</p>
-				<p>Para poder realizar a AllowList, preencha as informações abaixo, e assim que completo, após clicar em "Realizar AllowList", você será redirecionado à ela! 
+				
 				<div class="split style1">
 					<section>
 						<form id="allowListForm" method="post" action="#">
@@ -4158,7 +4159,9 @@
 							</div>
 							
 							<ul class="actions">
-								<li><button id="submitButton" class="button submit" disabled>Realizar AllowList</button></li>
+								<a id="submitButton" href="https://discord.gg/vzSEyWZ5" class="button action-button" onclick="submitForm(event)">Realizar AllowList</a>
+
+
 							</ul>
 						</form>
 					</section>
@@ -4189,21 +4192,6 @@
 			</div>
 		</section>
 		
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var allowListForm = document.getElementById("allowListForm");
-				var submitButton = document.getElementById("submitButton");
-		
-				allowListForm.addEventListener("input", function () {
-					if (allowListForm.checkValidity()) {
-						submitButton.disabled = false;
-					} else {
-						submitButton.disabled = true;
-					}
-				});
-			});
-		</script>
-		
 
 	<!-- Footer -->
 	<footer id="footer" class="wrapper style1-alt">
@@ -4216,6 +4204,24 @@
 	</footer>
 
 	<!-- Scripts -->
+
+	<script>
+		function submitForm(event) {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var message = document.getElementById("message").value;
+	
+			if (name !== "" && email !== "" && message !== "") {
+				// Se todos os campos estiverem preenchidos, permita o redirecionamento
+				return true;
+			} else {
+				// Se algum campo estiver vazio, não permita o redirecionamento
+				event.preventDefault(); // Impede o comportamento padrão do link
+				alert("Antes de realizar a AllowList, preencha os campos acima corretamente!");
+				return false;
+			}
+		}
+	</script>
 
 	<script>
 		
